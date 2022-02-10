@@ -10,7 +10,7 @@
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
-code, del, dfn, em, img, ins, kbd, q, s, samp,
+code, del, dfn, em, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
 u, i, center, dl, dt, dd, ol, ul, li, fieldset,
 form, label, legend, table, caption, tbody,
@@ -31,7 +31,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
-}
+}	
 textarea {
 	resize: none;
  }
@@ -2167,10 +2167,16 @@ input, select, textarea {
 		border: 0;
 		display: inline-block;
 		position: relative;
+		opacity: 0.1;
+		filter: blur(8px);
+  -webkit-filter: blur(8px);
+		
 	}
 
 		.image img {
 			display: block;
+			opacity: 0.1;
+			
 		}
 
 		.image.left, .image.right {
@@ -2207,10 +2213,13 @@ input, select, textarea {
 			display: block;
 			margin: 2.5em 0;
 			width: 100%;
+
 		}
 
 			.image.main img {
 				width: 100%;
+	
+				
 			}
 
 			@media screen and (max-width: 736px) {
@@ -2407,6 +2416,7 @@ input, select, textarea {
 					ul.pagination li > .page.active:hover {
 						background-color: #9bf1ff;
 						color: #242943 !important;
+						opacity: 0.1;
 					}
 
 					ul.pagination li > .page.active:active {
@@ -2773,6 +2783,7 @@ input, select, textarea {
 
 				.tiles article h3 a:hover {
 					color: inherit !important;
+					opacity: 0.1;
 				}
 
 			.tiles article .link.primary {
@@ -2838,7 +2849,7 @@ input, select, textarea {
 			}
 
 			.tiles article:nth-child(6n - 4):before {
-				background-color: #8d82c4;
+				background-color: #e27171;
 			}
 
 			.tiles article:nth-child(6n - 3):before {
