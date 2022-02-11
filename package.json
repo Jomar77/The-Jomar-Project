@@ -1,0 +1,24 @@
+{
+  "name": "html5up-forty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jomar77/html5up-forty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jomar77/html5up-forty/issues"
+  },
+  "homepage": "https://github.com/Jomar77/html5up-forty#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "netlify-lambda": "^2.0.15"
+  }
+}
