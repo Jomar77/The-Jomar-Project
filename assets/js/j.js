@@ -1,6 +1,6 @@
 async function getData(){
 
-const response = await fetch('API/duo.json')
+const response = await fetch('./templates/duo.json')
 const data =  await response.json()
 const {site_streak} = data
 document.getElementById('myLink').textContent = site_streak;
