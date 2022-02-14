@@ -1,13 +1,20 @@
-name: GitHub Actions Demo
-on: [push]
-jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - name: python run
-        run: duolingo.py
+ name: py
+    
+    on:
+      schedule:
+        - cron: "0 0 * * *" #runs at 00:00 UTC everyday
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+    
+        steps:
+          - name: checkout repo content
+            uses: actions/checkout@v2 # checkout the repository content to github runner.
+          - name: setup python
+            uses: actions/setup-python@v2
+            with:
+              python-version: 3.8 #install the python needed
+          - name: execute py script # run the run.py to get the latest data
+            run: |
+              python duolingoApi.py
