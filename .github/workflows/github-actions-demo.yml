@@ -27,7 +27,12 @@ jobs:
           
       - name: commit files
         run: |
-          git config --local user.email "jnacorda04@gmail.com"
-          git config --local user.name "Jomar77"
+           git config --local user.email "action[bot]@github.com"
+          git config --local user.name "github-actions[bot]"
           git add -A
           git commit -m "update data" -a
+      - name: Push Commit
+        if: steps.commit.outputs.push == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+           github_token: ${{ secrets.SECRET_TOKEN }}
