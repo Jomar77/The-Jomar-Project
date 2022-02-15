@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install duolingo
+          pip install -r requirements.txt
 
       - name: execute py script # run the run.py to get the latest data
         run: |
