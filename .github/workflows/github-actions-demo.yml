@@ -24,7 +24,7 @@ jobs:
       - name: execute py script # run the run.py to get the latest data
         run: |
           python duolingoApi.py
-          
+    
       - name: commit files
         run: |
            git config --local user.email "action[bot]@github.com"
