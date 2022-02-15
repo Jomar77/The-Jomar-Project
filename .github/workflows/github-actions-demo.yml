@@ -27,8 +27,8 @@ jobs:
     
       - name: commit files
         run: |
-          git config --local user.email "action[bot]@github.com"
-          git config --local user.name "github-actions[bot]"
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
           git add -A
           git commit -m "update data" -a
       - name: Push Commit
