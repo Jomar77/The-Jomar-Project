@@ -74,6 +74,9 @@ input, select, textarea {
 	-ms-appearance: none;
 	appearance: none;
 }
+span.emoji {
+	font-size: 22px;
+  }
 
 /* Basic */
 
