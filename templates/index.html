@@ -4,7 +4,7 @@
 		<title>Jomar Project</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="./assets/css/main.css" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}" />
 		<noscript><link rel="stylesheet" href="./assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -169,14 +169,14 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/j.js"></script>
+			<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='js/jquery.scrolly.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='js/jquery.scrollex.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='js/util.js') }}"></script>
+			<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+			<script src="{{ url_for('static',filename='js/j.js') }}"></script>
 
 	</body>
 </html>
