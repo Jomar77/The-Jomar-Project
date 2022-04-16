@@ -1,4 +1,4 @@
-ÿþclick==8.1.2
+click==8.1.2
 colorama==0.4.4
 Flask==2.1.1
 gunicorn==20.1.0

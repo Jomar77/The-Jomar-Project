@@ -1,4 +1,5 @@
 from flask import Flask, redirect, url_for, render_template, request
+import mysql.connector
 
 def sql_connector():
     mydb =  mysql.connector.connect(
