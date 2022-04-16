@@ -12,7 +12,7 @@ def sql_connector():
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://futnczcpmldwrl:799d6cd3f2f48f2baec2cfd9d33919688d9620ab30c227693f84b7520a9c6277@ec2-52-21-136-176.compute-1.amazonaws.com:5432/d947ktfnflnnhm'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:Pisay_2021@localhost/mydatabase'
 @app.route('/', methods = ['GET', 'POST'])
 
 def home():
@@ -28,4 +28,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(debug=True)
