@@ -13,6 +13,7 @@ def sql_connector():
 
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://futnczcpmldwrl:799d6cd3f2f48f2baec2cfd9d33919688d9620ab30c227693f84b7520a9c6277@ec2-52-21-136-176.compute-1.amazonaws.com:5432/d947ktfnflnnhm'
 @app.route('/', methods = ['GET', 'POST'])
 
 def home():
