@@ -27,8 +27,7 @@
 							<nav id="menu">
 								<ul class="links">
 									<li><a href="index.html">Home</a></li>
-									<li><a href="landing.html">Landing</a></li>
-									<li><a href="blogs.html">Generic</a></li>
+									<li><a href="blogs.html">Blogs</a></li>
 								</ul>
 							</nav>
 
@@ -153,6 +152,18 @@
 							</section>
 						</div>
 					</section>
+
+					<section>
+						{% for users in data %}
+						{{users[0]}}	
+						{{users[1]}}	
+						{{users[2]}}	
+						{{users[3]}}	
+					</br>
+							{% endfor %}
+						</section>
+
+					<br>
 
 				<!-- Footer -->
 					<footer id="footer">
