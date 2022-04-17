@@ -1,14 +1,18 @@
 from flask import Flask, render_template, request
 import mysql.connector
 
-def sql_connector():
-    mydb =  mysql.connector.connect(
-        host = "localhost",
-        user = "root",
-        passwd = "Pisay_2021",)
+class connect:
+    def __init__(self):
+        self.mydb, self.my_cursor = self.sql_connector()
 
-    my_cursor = mydb.cursor()
-    return mydb, my_cursor
+    def sql_connector():
+        mydb =  mysql.connector.connect(
+            host = "localhost",
+            user = "root",
+            passwd = "Pisay_2021",)
+
+        my_cursor = mydb.cursor()
+        return mydb, my_cursor
 
 app = Flask(__name__)
 
@@ -17,7 +21,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:Pisay_2021@
 
 def home():
     
-    mydb, my_cursor = sql_connector()
+    mydb, my_cursor = connect.sql_connector()
     if request.method == 'POST':
         my_cursor.execute("CREATE TABLE IF NOT EXISTS mydatabase.mytable (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), message VARCHAR(255))")
         my_cursor.execute("INSERT INTO mydatabase.mytable (name, email, message) VALUES (%s, %s, %s)", (request.form['name'], request.form['email'], request.form['message']))
