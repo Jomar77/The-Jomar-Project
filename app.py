@@ -4,7 +4,7 @@ import mysql.connector
 
 class connect:
     def __init__(self):
-        self.mydb, self.__my_cursor = self.sql_connector()
+        self.mydb, self.my_cursor = self.sql_connector()
 
     def sql_connector(i,j):
         mydb =  mysql.connector.connect(
