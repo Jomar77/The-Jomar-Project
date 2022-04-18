@@ -1,4 +1,3 @@
-from dataclasses import dataclass
 from flask import Flask, render_template, request
 import mysql.connector
 
@@ -18,7 +17,7 @@ class connect:
         return mydb, my_cursor
     
     def setInfo():
-        i = str(input("Enter your database name: "))
+        i = str(input("Enter your database user: "))
         j = str(input("Enter your database password: "))
         return i, j
 
