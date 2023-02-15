@@ -6,12 +6,16 @@ app = Flask(__name__)
 def home():  
     return render_template('index.html')
 
-@app.route('/2022.html', methods = ['GET', 'POST'])
+@app.route('/2021.html', methods = ['GET', 'POST'])
 def year1():
+    return render_template("2021.html")
+
+@app.route('/2022.html', methods = ['GET', 'POST'])
+def year2():
     return render_template("2022.html")
 
 @app.route('/2023.html', methods = ['GET', 'POST'])
-def year2():
+def year3():
     return render_template("2023.html")
 
 if __name__ == '__main__':
