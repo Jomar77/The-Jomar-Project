@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}" />
-		<link rel="stylesheet" href="static\css\fontawesome-all.min.css"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename= 'fontawesome-all.min.css') }}"/>
 		<noscript><link rel="stylesheet" href="./assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -179,6 +179,5 @@
 			<script src="{{ url_for('static',filename='js/util.js') }}"></script>
 			<script src="{{ url_for('static',filename='js/main.js') }}"></script>
 			<script src="{{ url_for('static',filename='js/j.js') }}"></script>
-
 	</body>
 </html>
