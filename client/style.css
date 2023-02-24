@@ -1,6 +1,7 @@
 body {
-	background-color: #F8F7F2;
-	font-family: 'Roboto', sans-serif;
+	background-color: #f1ede2;
+	font-family: sans-serif;
+	margin: 0;
   }
   
   .container {
@@ -11,87 +12,167 @@ body {
 	height: 100vh;
   }
   
-  .fade-in {
-	animation-name: fadeIn;
-	animation-duration: 0.5s;
+  .input-section {
+	flex: 1;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	padding: 30px;
+	margin: 10px;
+	max-width: 400px;
   }
   
-  .fade-out {
-	animation-name: fadeOut;
-	animation-duration: 0.5s;
+  .input-field {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-size: 16px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 100%;
+  }
+  
+  select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path d="M5.5 7.5L2 3h8z"/></svg>');
+	background-repeat: no-repeat;
+	background-position-x: 98%;
+	background-position-y: center;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+	padding: 10px;
+	width: 100%;
+  }
+  
+  select::-ms-expand {
+	display: none;
+  }
+  
+  button{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+  }
+  
+  body {
+	background-color: #fff9e9;
+	font-family: sans-serif;
+  }
+  
+  .container {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+  }
+  
+  .input-section {
+	width: 40%;
+	margin-right: 2%;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease-in-out;
+  }
+  
+  .output-section {
+	width: 58%;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease-in-out;
+  }
+  
+  .output {
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: center;
+	color: #f86e6b;
+	margin-top: 20px;
+	animation: fadeIn 1s ease-in-out;
+  }
+  
+  .form-group {
+	margin-bottom: 20px;
+  }
+  
+  .form-group label {
+	display: block;
+	margin-bottom: 5px;
+	font-size: 1.2rem;
+	font-weight: bold;
+  }
+  
+  .form-group select,
+  .form-group input {
+	width: 100%;
+	padding: 10px;
+	font-size: 1rem;
+	border: none;
+	background-color: #f5f5f5;
+	border-radius: 5px;
+  }
+  
+  .button-container {
+	text-align: center;
+	margin-top: 20px;
+	animation: slideUp 0.5s ease-in-out;
+  }
+  
+  .button-container button {
+	background-color: #f86e6b;
+	color: #fff;
+	font-size: 1.2rem;
+	font-weight: bold;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+  }
+  
+  .button-container button:hover {
+	background-color: #fff;
+	color: #f86e6b;
+  }
+  
+  @media only screen and (max-width: 768px) {
+	.container {
+	  flex-direction: column;
+	  align-items: center;
+	}
+  
+	.input-section,
+	.output-section {
+	  width: 90%;
+	  margin-right: 0;
+	  margin-bottom: 20px;
+	}
   }
   
   @keyframes fadeIn {
-	from {opacity: 0;}
-	to {opacity: 1;}
+	from {
+	  opacity: 0;
+	}
+  
+	to {
+	  opacity: 1;
+	}
   }
   
-  @keyframes fadeOut {
-	from {opacity: 1;}
-	to {opacity: 0;}
-  }
+  @keyframes slideUp {
+	from {
+	  transform: translateY(50px);
+	}
   
-  #input-section {
-	width: 40%;
-	margin-right: 20px;
+	to {
+	  transform: translateY(0);
+	}
   }
-  
-  #output-section {
-	width: 40%;
-	opacity: 0;
-  }
-  
-  h2 {
-	margin-top: 0;
-  }
-  
-  .input-label, .output-label {
-	display: block;
-	margin-bottom: 10px;
-  }
-  
-  .input-field, .select-field, .output-field {
-	width: 100%;
-	padding: 10px;
-	margin-bottom: 20px;
-	border: none;
-	border-radius: 4px;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-	font-size: 16px;
-	font-weight: bold;
-  }
-  
-  .select-field {
-	background-color: #F8F7F2;
-  }
-  
-  .calculate-button {
-	background-color: #C8B560;
-	color: #F8F7F2;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 4px;
-	font-size: 16px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-  }
-  
-  .calculate-button:hover {
-	background-color: #E1D8A0;
-  }
-  
-  #output-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-  }
-  
-  .output-field {
-	flex: 1;
-	margin-left: 10px;
-	font-size: 20px;
-	font-weight: bold;
-	text-align: right;
-  }
-  
+	

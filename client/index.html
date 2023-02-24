@@ -1,47 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>Real Estate Calculator</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
-	<script src="app.js"></script>
-</head>
-<body>
-	<div class="container">
-		<div id="input-section" class="fade-in">
-			<h2>Calculate Property Value</h2>
-			<form id="input-form">
-				<label class="input-label" for="area-input">Area (sqft)</label>
-				<input class="input-field" type="number" id="area-input" required>
+  <head>
+    <title>Real Estate Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-section">
+        <h1>Real Estate Calculator</h1>
+        <form>
+          <label for="area">Area (sqft)</label>
+          <input type="number" id="area" class="input-field" placeholder="Enter area in sqft" required>
 
-				<label class="input-label" for="bedrooms-input">Number of Bedrooms</label>
-				<input class="input-field" type="number" id="bedrooms-input" required>
+          <label for="bedrooms">Number of bedrooms</label>
+          <input type="number" id="bedrooms" class="input-field" placeholder="Enter number of bedrooms" required>
 
-				<label class="input-label" for="bathrooms-input">Number of Bathrooms</label>
-				<input class="input-field" type="number"
-				id="bathrooms-input" required>
+          <label for="bathrooms">Number of bathrooms</label>
+          <input type="number" id="bathrooms" class="input-field" placeholder="Enter number of bathrooms" required>
 
-				<label class="input-label" for="location-select">Location</label>
-				<select class="select-field" id="location-select" required>
-					<option value="">Select Location</option>
-					<option value="new-york">New York</option>
-					<option value="los-angeles">Los Angeles</option>
-					<option value="miami">Miami</option>
-					<option value="chicago">Chicago</option>
-				</select>
+          <label for="location">Location</label>
+          <select id="location" class="input-field" required>
+            <option value="">Select location</option>
+            <option value="downtown">Downtown</option>
+            <option value="suburb">Suburb</option>
+            <option value="rural">Rural</option>
+          </select>
 
-				<button class="calculate-button" type="submit">Calculate</button>
-			</form>
-		</div>
+          <button type="submit" id="calculate-btn">Calculate</button>
+        </form>
+      </div>
+      <div class="output-section">
+        <div id="output-container">
+          <p id="output-field"></p>
+        </div>
+      </div>
+    </div>
 
-		<div id="output-section">
-			<div id="output-container" class="fade-out">
-				<h2 class="output-label">Estimated Property Value:</h2>
-				<div class="output-field" id="output-field">$0</div>
-			</div>
-		</div>
-	</div>
-</body>
+    <script src="/client/script.js"></script>
+  </body>
 </html>
