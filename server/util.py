@@ -7,7 +7,7 @@ __locations = None
 __data_columns = None
 __model = None
 
-def get_estimated_price(location,room,bath,age,area):
+def get_estimated_price(location,room,bath,area):
     try:
         loc_index = __data_columns.index(location.lower())
     except:
@@ -17,7 +17,6 @@ def get_estimated_price(location,room,bath,age,area):
     x[0] = area
     x[1] = room
     x[2] = bath
-    x[3] = age
     if loc_index >= 0:
         x[loc_index] = 1
         
