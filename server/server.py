@@ -16,11 +16,11 @@ def get_location_names():
 def predict_home_price():
     area = float(request.form['area'])
     location = request.form['location']
-    room = int(request.form['rooms'])
+    room = int(request.form['room'])
     bath = int(request.form['bathroom'])
 
     response = jsonify({
-        'estimated_price': util.get_estimated_price(location, area, room, bath)
+        'estimated_price': util.get_estimated_price(location, bath, room, room)
     })
     response.headers.add('Access-Control-Allow-Origin', '*')
 
