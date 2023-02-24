@@ -33,7 +33,7 @@ def load_saved_artifacts():
 
     with open('artifacts/columns.json', 'r') as f:
         __data_columns = json.load(f)['data_columns']
-        __locations = __data_columns[9:]
+        __locations = __data_columns[3:]
 
     global __model
     if __model is None:
@@ -44,4 +44,4 @@ def load_saved_artifacts():
 if __name__ == "__main__":
     load_saved_artifacts()
     print(get_location_names())
-    print(get_estimated_price('sidi el mahrsi', 3, 2, 10, 1000))
+    print(get_estimated_price('ariana', 3, 3, 1000))
