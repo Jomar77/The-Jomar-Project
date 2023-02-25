@@ -29,9 +29,6 @@ function onPageLoad() {
   });
 }
 
-
-
-
 // Function to validate input values
 function validateInput(event) {
   let inputField = event.target;
@@ -42,7 +39,7 @@ function validateInput(event) {
   let max = 0;
   switch (inputField.id) {
     case 'area':
-      min = 100;
+      min = 50;
       break;
     case 'bedrooms':
     case 'bathrooms':
@@ -72,7 +69,7 @@ function updateOutput() {
   var url = "http://localhost:5000/predict_home_price";
 
   $.post(url, {
-    location: locat,
+    location: locat.valueOf(),
     bathroom: bathroom,
     room: bedroom,
     area: area
@@ -85,17 +82,20 @@ function updateOutput() {
 }
 
 // Event listeners for inputs
-areaInput.addEventListener('input',  validateInput, (e) => {
+areaInput.addEventListener('change',  (e) => {
+  validateInput(e);
   area = parseInt(e.target.value) || 0;
   updateOutput();
 });
 
-bedroomInput.addEventListener('input', validateInput, (e) => {
+bedroomInput.addEventListener('change', (e) => {
+  validateInput(e);
   bedroom = parseInt(e.target.value) || 0;
   updateOutput();
 });
 
-bathroomInput.addEventListener('input', validateInput, (e) => {
+bathroomInput.addEventListener('change', (e) => {
+  validateInput(e);
   bathroom = parseInt(e.target.value) || 0;
   updateOutput();
 });
