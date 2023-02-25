@@ -78,7 +78,7 @@ function updateOutput() {
     area: area
   }, function (data, status) {
     console.log(data.estimated_price);
-    outputText.textContent = `$${data.estimated_price}`;
+    outputText.textContent = `€${data.estimated_price}`;
     console.log(status);
   });
 
