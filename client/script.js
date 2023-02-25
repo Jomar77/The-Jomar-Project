@@ -1,30 +1,69 @@
-// Select DOM elements
-const areaInput = document.getElementById('area-input');
-const bedroomInput = document.getElementById('bedroom-input');
-const bathroomInput = document.getElementById('bathroom-input');
-const locationInput = document.getElementById('location-input');
-const outputText = document.getElementById('output-text');
-const submitBtn = document.getElementById('calculate-btn');
+
+const areaInput = document.getElementById('area');
+const bedroomInput = document.getElementById('bedrooms');
+const bathroomInput = document.getElementById('bathrooms');
+const locationInput = document.getElementById('uiLocation');
+const outputText = document.getElementById('output-field');
 
 // Define variables for calculations
 let area = 0;
 let bedroom = 0;
+let locat = '';
 let bathroom = 0;
-let location = '';
+
+function onPageLoad() {
+  console.log("Page loaded");
+  var url = "http://localhost:5000/get_location_names";
+  $.get(url, function(data, status) {
+    console.log("got response for get_location_names request");
+    if (data) {
+      var locations = data.locations;
+      var uiLocation = document.getElementById("uiLocation");
+      $('#uiLocation').empty();
+      for (var i in locations) {
+        var opt = new Option(locations[i]);
+        $('#uiLocation').append(opt);
+      }
+    }
+    console.log(status);
+  });
+}
+
+
+
+function limitInput(event) {
+  const max = 5;
+  const inputField = event.target;
+  let inputValue = inputField.value;
+  
+  // Remove any non-numeric characters from the input value
+  inputValue = inputValue.replace(/\D/g, '');
+  
+  // Limit the input value to the maximum allowed value
+  if (inputValue > max) {
+    inputValue = max;
+  }
+  
+  // Update the input field value
+  inputField.value = inputValue;
+}
 
 // Function to update output text
 function updateOutput() {
-  let price = calculatePrice(area, bedroom, bathroom, location);
-  outputText.textContent = `$${price.toLocaleString()}`;
-}
+  
+  var url = "http://localhost:5000/predict_home_price";
 
-// Function to handle submit button click
-function submitForm() {
-  area = parseInt(areaInput.value) || 0;
-  bedroom = parseInt(bedroomInput.value) || 0;
-  bathroom = parseInt(bathroomInput.value) || 0;
-  location = locationInput.value;
-  updateOutput();
+  $.post(url, {
+    location: locat,
+    bathroom: bathroom,
+    room: bedroom,
+    area: area
+  }, function(data, status) {
+    console.log(data.estimated_price);
+    outputText.textContent = `$${data.estimated_price}`;
+    console.log(status);
+  });
+
 }
 
 // Event listeners for inputs
@@ -33,51 +72,19 @@ areaInput.addEventListener('input', (e) => {
   updateOutput();
 });
 
-bedroomInput.addEventListener('input', (e) => {
+bedroomInput.addEventListener('input', limitInput, (e) => {
   bedroom = parseInt(e.target.value) || 0;
   updateOutput();
 });
 
-bathroomInput.addEventListener('input', (e) => {
+bathroomInput.addEventListener('input', limitInput, (e) => {
   bathroom = parseInt(e.target.value) || 0;
   updateOutput();
 });
 
 locationInput.addEventListener('change', (e) => {
-  location = e.target.value;
+  locat = e.target.value;
   updateOutput();
 });
 
-submitBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  submitForm();
-});
-
-// Function to calculate price
-function calculatePrice(area, bedroom, bathroom, location) {
-  let basePrice = 50000;
-  let areaMultiplier = 1000;
-  let bedroomMultiplier = 10000;
-  let bathroomMultiplier = 5000;
-  let locationMultiplier = 1;
-
-  switch (location) {
-    case 'New York':
-      locationMultiplier = 1.5;
-      break;
-    case 'Los Angeles':
-      locationMultiplier = 1.2;
-      break;
-    case 'San Francisco':
-      locationMultiplier = 1.3;
-      break;
-    case 'Miami':
-      locationMultiplier = 1.1;
-      break;
-  }
-
-  let price = basePrice + area * areaMultiplier + bedroom * bedroomMultiplier + bathroom * bathroomMultiplier;
-  price *= locationMultiplier;
-
-  return price;
-}
+window.onload = onPageLoad;
