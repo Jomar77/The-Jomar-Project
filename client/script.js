@@ -13,9 +13,9 @@ let bathroom = 0;
 
 function onPageLoad() {
   console.log("Page loaded");
-// var url = "http://localhost:5000/get_location_names";
+var url = "http://localhost:5000/get_location_names";
 
-  var url = "/api/get_location_names";
+ // var url = "/api/get_location_names";
   $.get(url, function (data, status) {
     console.log("got response for get_location_names request");
     if (data) {
@@ -68,9 +68,9 @@ function validateInput(event) {
 // Function to update output text
 function updateOutput() {
 
-  //var url = "http://localhost:5000/predict_home_price";
+  var url = "http://localhost:5000/predict_home_price";
 
-  var url = "/api/predict_home_price";
+ // var url = "/api/predict_home_price";
   
   $.post(url, {
     location: locat.valueOf(),
