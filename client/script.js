@@ -68,7 +68,7 @@ function validateInput(event) {
 // Function to update output text
 function updateOutput() {
 
- //  var url = "http://localhost:5000/predict_home_price";
+  //var url = "http://localhost:5000/predict_home_price";
 
   var url = "/api/predict_home_price";
   
@@ -79,7 +79,7 @@ function updateOutput() {
     area: area
   }, function (data, status) {
     console.log(data.estimated_price);
-    outputText.textContent = `€${data.estimated_price}`;
+    outputText.textContent = `${data.estimated_price}`;
     console.log(status);
   });
 
