@@ -28,5 +28,4 @@ This website was created by Jomar as a sample project. It uses the following res
 
 - Bootstrap 4.5.3 (https://getbootstrap.com/)
 - jQuery 3.5.1 (https://jquery.com/)
-- Popper.js 1.16.1 (https://popper.js.org/)
 - Kaggle (https://www.kaggle.com/datasets/samermakni/tunisia-house-pricing)
