@@ -1,4 +1,3 @@
-
 const areaInput = document.getElementById('area');
 const bedroomInput = document.getElementById('bedrooms');
 const bathroomInput = document.getElementById('bathrooms');
@@ -13,14 +12,12 @@ let bathroom = 0;
 
 function onPageLoad() {
   console.log("Page loaded");
-//var url = "http://localhost:5000/get_location_names";
 
- var url = "/api/get_location_names";
+  var url = "/api/get_location_names";
   $.get(url, function (data, status) {
     console.log("got response for get_location_names request");
     if (data) {
       var locations = data.locations;
-      var uiLocation = document.getElementById("uiLocation");
       $('#uiLocation').empty();
       for (var i in locations) {
         var opt = new Option(locations[i]);
@@ -64,12 +61,8 @@ function validateInput(event) {
   inputField.value = inputValue;
 }
 
-
 // Function to update output text
 function updateOutput() {
-
-  //var url = "http://localhost:5000/predict_home_price";
-
   var url = "/api/predict_home_price";
   
   $.post(url, {
@@ -82,7 +75,6 @@ function updateOutput() {
     outputText.textContent = `${data.estimated_price}`;
     console.log(status);
   });
-
 }
 
 // Event listeners for inputs

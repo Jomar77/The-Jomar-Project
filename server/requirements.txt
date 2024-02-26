@@ -1,1 +1,6 @@
-Flask ==
+flask
+requests
+numpy
+pandas
+matplotlib
+scikit-learn
